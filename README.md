@@ -1,12 +1,50 @@
-# Getting Started with Create React App
+# LogSierra
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> “Patience persistence and perseverance.” Thomas Edison
 
-## Available Scripts
+<br />
+
+---
+
+# :pushpin: Table of Contents
+* [Made With](#rocket-made-with)
+* [Installation](#construction_worker-installation)
+* [Getting Started](#runner-getting-started)
+* [Found a bug? Missing a specific feature?](#bug-issues)
+* [Contributing](#tada-contributing)
+* [License](#closed_book-license)
+
+# :rocket: Made With
+
+* 💠 TypeScript
+* 💫 React
+* 💅🏻 Styled Components
+
+# :construction_worker: Installation
+
+**You need to install at least [NodeJS 12.18.2](https://nodejs.org/) and [Yarn](https://classic.yarnpkg.com/en/docs/install/), then in order to clone the project via HTTPS, run this command:**
+
+```git clone https://github.com/marcosvaldeni/LogSierra.git```
+
+SSH URLs provide access to a Git repository via SSH, a secure protocol. If you have an SSH key registered in your Github account, clone the project using this command:
+
+```git clone github.com/marcosvaldeni/LogSierra.git```
+
+**Install Dependencies**
+
+In the project directory, you have to run:
+
+`yarn`
+
+This command will install all dependencies. It may take a while.
+
+# :runner: Getting Started
+
+**Starting**
 
 In the project directory, you can run:
 
-### `yarn start`
+`yarn dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,33 +52,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+# :bug: Issues
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Feel free to **file a new issue** with a respective title and description on the [Move.Yourself](https://github.com/marcosvaldeni/LogSierra/issues) repository. If you already found a solution to your problem, **I would love to review your pull request**! Have a look at our [contribution guidelines](https://github.com/marcosvaldeni/LogSierra/blob/master/CONTRIBUTING.md) to find out about the coding standards.
 
-### `yarn build`
+# :tada: Contributing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Check out the [contributing](https://github.com/marcosvaldeni/LogSierra/blob/master/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# :closed_book: License
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Released in 2021.
+This project is under the [MIT license](https://github.com/marcosvaldeni/LogSierra/blob/master/LICENSE).
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Made with love by [Marcos Lucas](https://github.com/marcosvaldeni) 💚🚀
