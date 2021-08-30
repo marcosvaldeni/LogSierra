@@ -54,7 +54,7 @@ You will also see any lint errors in the console.
 
 # :bug: Issues
 
-Feel free to **file a new issue** with a respective title and description on the [Move.Yourself](https://github.com/marcosvaldeni/LogSierra/issues) repository. If you already found a solution to your problem, **I would love to review your pull request**! Have a look at our [contribution guidelines](https://github.com/marcosvaldeni/LogSierra/blob/master/CONTRIBUTING.md) to find out about the coding standards.
+Feel free to **file a new issue** with a respective title and description on the [LogSierra](https://github.com/marcosvaldeni/LogSierra/issues) repository. If you already found a solution to your problem, **I would love to review your pull request**! Have a look at our [contribution guidelines](https://github.com/marcosvaldeni/LogSierra/blob/master/CONTRIBUTING.md) to find out about the coding standards.
 
 # :tada: Contributing
 
