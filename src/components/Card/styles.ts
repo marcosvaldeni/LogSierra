@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-// eslint-disable-next-line import/prefer-default-export
-export const Container = styled.div`
+export const Container = styled.main`
   height: 50rem;
   width: 31rem;
 

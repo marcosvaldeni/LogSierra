@@ -1,8 +1,10 @@
 import React from 'react';
-// import { FiLogIn } from 'react-icons/fi';
+import { FiMail, FiLock, FiUser } from 'react-icons/fi';
 
 import Card from '../../components/Card';
 import Footer from '../../components/Footer';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 import { Container } from './styles';
 
@@ -13,11 +15,21 @@ const SignIn: React.FC = () => {
     <Container>
       <Card>
         <img src={LogoSvg} alt="LogSierra Logo" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <button type="button">Sign Up</button>
+        <Input name="name" icon={FiUser} placeholder="Name" />
+        <Input name="email" icon={FiMail} placeholder="Email" />
+        <Input
+          name="password"
+          icon={FiLock}
+          type="password"
+          placeholder="Password"
+        />
+        <Input
+          name="password_confirmation"
+          icon={FiLock}
+          type="password"
+          placeholder="Password confirmation"
+        />
+        <Button type="submit">Sign Up</Button>
         <a href="/">Back</a>
         <Footer />
       </Card>

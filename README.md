@@ -3,6 +3,7 @@
 > “Patience persistence and perseverance.” Thomas Edison
 
 <br />
+<p align="center"><img src=".github/thumbnail.png?raw=true"/></p>
 
 ---
 

@@ -7,6 +7,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: 0;
   }
 
   :root {
@@ -20,8 +21,9 @@ export default createGlobalStyle`
   --purple-100: #f3ecf8;
   --purple-200: #CEB5E3;
   --purple-300: #BC91E1;
-  --purple: #804ECA;
-  --purple: #5908A1;
+  --purple-350: #7f56d8;
+  --purple-400: #804ECA;
+  --purple-900: #5908A1;
 
   --red-100: #FFD2D4;
   --red-400: #FF696D;
