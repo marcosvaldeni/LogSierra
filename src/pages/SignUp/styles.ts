@@ -18,25 +18,27 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
 
-    div {
-      margin-top: 1rem;
+    form {
+      width: 100%;
 
-      & + div {
+      div {
+        margin-top: 1rem;
+
+        & + div {
+          margin-top: 2rem;
+        }
+      }
+
+      button {
         margin-top: 2rem;
       }
-    }
-
-    button {
-      margin-top: 2rem;
     }
 
     > a {
       margin-top: 1rem;
 
       font-size: 1.25rem;
-      font-weight: 900;
-      color: var(--purple-200);
-      text-transform: uppercase;
+      color: var(--purple-300);
     }
   }
 `;
