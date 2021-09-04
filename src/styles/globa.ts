@@ -17,9 +17,9 @@ export default createGlobalStyle`
   --gray-400: #718696;
   --gray-600: #2D4152;
 
-  --purple: #f3ecf8;
-  --purple: #CEB5E3;
-  --purple: #BC91E1;
+  --purple-100: #f3ecf8;
+  --purple-200: #CEB5E3;
+  --purple-300: #BC91E1;
   --purple: #804ECA;
   --purple: #5908A1;
 
@@ -53,7 +53,6 @@ export default createGlobalStyle`
   }
 
   body {
-    min-height: 100vh;
     background: url(${background}) no-repeat center center / cover;
     -webkit-font-smoothing: antialiased;
   }

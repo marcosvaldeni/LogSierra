@@ -15,11 +15,10 @@ const SignIn: React.FC = () => {
         <img src={LogoSvg} alt="LogSierra Logo" />
         <input type="text" />
         <input type="text" />
-        <button type="button">Login</button>
-        <div>
-          <a href="/">Forgot Password</a>
-          <a href="/">Sign Up</a>
-        </div>
+        <input type="text" />
+        <input type="text" />
+        <button type="button">Sign Up</button>
+        <a href="/">Back</a>
         <Footer />
       </Card>
     </Container>

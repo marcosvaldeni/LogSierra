@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  > div {
+  div {
     padding: 1rem 3rem;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@ export const Container = styled.div`
     input {
       width: 100%;
       height: 3.5rem;
-      margin-top: 3rem;
+      margin-top: 1rem;
 
       background: #ffffff;
       border: 2px solid var(--white);
@@ -26,14 +26,14 @@ export const Container = styled.div`
       box-shadow: 3px 3px 20px 3px rgba(0, 0, 0, 0.03);
 
       & + input {
-        margin-top: 2.5rem;
+        margin-top: 2rem;
       }
     }
 
     button {
       width: 100%;
       height: 3.5rem;
-      margin-top: 4rem;
+      margin-top: 2rem;
       border-radius: 10px;
       border: none;
       background: linear-gradient(
@@ -48,20 +48,13 @@ export const Container = styled.div`
       text-transform: uppercase;
     }
 
-    > div {
-      width: 100%;
-      margin-top: 3rem;
+    > a {
+      margin-top: 1rem;
 
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-
-      a {
-        font-size: 1.25rem;
-        font-weight: 900;
-        color: var(--purple-200);
-        text-transform: uppercase;
-      }
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--purple-200);
+      text-transform: uppercase;
     }
   }
 `;
