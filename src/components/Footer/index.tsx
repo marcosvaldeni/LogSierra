@@ -7,7 +7,7 @@ const Card: React.FC = () => {
     <Container>
       <a href="/">Privacy Policy</a>
       <a href="/">
-        Developed and Desgned by <b>Marcos Valdeni Lucas</b>
+        Developed and Designed by <b>Marcos Valdeni Lucas</b>
       </a>
     </Container>
   );

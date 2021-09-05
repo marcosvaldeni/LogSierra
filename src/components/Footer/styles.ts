@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-// eslint-disable-next-line import/prefer-default-export
 export const Container = styled.footer`
-  width: 100%;
+  width: 170px;
   margin-top: auto;
+  text-align: center;
 
   display: flex;
-  align-self: flex-end;
   flex-direction: column;
   align-items: center;
 
@@ -21,5 +20,9 @@ export const Container = styled.footer`
     b {
       font-style: italic;
     }
+  }
+
+  @media (min-width: 422px) {
+    width: 100%;
   }
 `;
