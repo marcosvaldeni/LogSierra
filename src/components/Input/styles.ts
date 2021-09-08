@@ -14,7 +14,7 @@ export const Container = styled.div<ContainerProps>`
   border-radius: 10px;
   border: 2px solid var(--white);
   color: var(--gray-400);
-  box-shadow: 3px 3px 20px 3px rgba(0, 0, 0, 0.03);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
   display: flex;
   align-items: center;
@@ -69,6 +69,8 @@ export const Container = styled.div<ContainerProps>`
 `;
 
 export const Error = styled(Tooltip)`
+  height: 20px;
+
   svg {
     margin: 0;
   }

@@ -23,11 +23,15 @@ const SignIn: React.FC = () => {
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
-        name: Yup.string().required('Name is mandatory'),
+        name: Yup.string().required('Name is mandatory!'),
         email: Yup.string()
-          .email('Invalid email')
+          .email('Invalid email!')
           .required('Email is mandatory'),
-        password: Yup.string().min(6, 'At least 6 characters'),
+        password: Yup.string().min(6, 'At least 6 characters!'),
+        password_confirmation: Yup.string()
+          .required('Password is mandatory!')
+          .nullable()
+          .oneOf([Yup.ref('password'), null], 'Password does not match!'),
       });
 
       await schema.validate(data, {

@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
-// eslint-disable-next-line import/prefer-default-export
 export const Container = styled.div`
   height: 100vh;
 
@@ -10,10 +8,26 @@ export const Container = styled.div`
   justify-content: center;
 
   main {
+    img {
+      height: 30%;
+    }
+
     padding: 1rem 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    form {
+      width: 100%;
+
+      > div {
+        margin-top: 3rem;
+
+        & + div {
+          margin-top: 3rem;
+        }
+      }
+    }
 
     > div {
       width: 100%;
