@@ -14,7 +14,6 @@ const App: React.FC = () => {
         <SignIn />
       </AppProvider>
 
-      <ToastContainer />
       <GlobalStyle />
     </>
   );
