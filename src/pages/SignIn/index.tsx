@@ -6,8 +6,9 @@ import * as Yup from 'yup';
 
 import LogoSvg from '../../assets/logo.svg';
 
+import { useAuth } from '../../hooks/auth';
+import { useToast } from '../../hooks/toast';
 import getValidationErrors from '../../utils/getValidationErrors';
-import { useAuth } from '../../context/auth';
 
 import Card from '../../components/Card';
 import Footer from '../../components/Footer';
@@ -24,7 +25,8 @@ interface SignInFormData {
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { signIn } = useAuth();
+  const { user, signIn } = useAuth();
+  const { addToast } = useToast();
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
@@ -52,9 +54,11 @@ const SignIn: React.FC = () => {
 
           formRef.current?.setErrors(errors);
         }
+
+        addToast();
       }
     },
-    [signIn],
+    [signIn, addToast],
   );
 
   return (
