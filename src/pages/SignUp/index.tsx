@@ -4,6 +4,7 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
+import { Link } from 'react-router-dom';
 import Card from '../../components/Card';
 import Footer from '../../components/Footer';
 import Input from '../../components/Input';
@@ -67,7 +68,7 @@ const SignIn: React.FC = () => {
           />
           <Button type="submit">Sign Up</Button>
         </Form>
-        <a href="/">Back</a>
+        <Link to="/">Back</Link>
         <Footer />
       </Card>
     </Container>

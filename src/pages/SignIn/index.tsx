@@ -3,6 +3,7 @@ import { FiLock, FiMail } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 import LogoSvg from '../../assets/logo.svg';
 
@@ -80,8 +81,8 @@ const SignIn: React.FC = () => {
           <Button type="submit">Login</Button>
         </Form>
         <div>
-          <a href="/">Forgot Password</a>
-          <a href="/">Sign Up</a>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/">Forgot Password</Link>
         </div>
         <Footer />
       </Card>
