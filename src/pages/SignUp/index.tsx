@@ -3,8 +3,12 @@ import { FiMail, FiLock, FiUser } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+import { Link, useHistory } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
+import api from '../../services/api';
+
+import { useToast } from '../../hooks/toast';
+
 import Card from '../../components/Card';
 import Footer from '../../components/Footer';
 import Input from '../../components/Input';
@@ -16,36 +20,66 @@ import LogoSvg from '../../assets/logo.svg';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 
+interface SignUpFormData {
+  name: string;
+  email: string;
+  password: string;
+}
+
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback(async (data: object) => {
-    try {
-      formRef.current?.setErrors({});
+  const { addToast } = useToast();
+  const history = useHistory();
 
-      const schema = Yup.object().shape({
-        name: Yup.string().required('Name is mandatory!'),
-        email: Yup.string()
-          .email('Invalid email!')
-          .required('Email is mandatory'),
-        password: Yup.string().min(6, 'At least 6 characters!'),
-        password_confirmation: Yup.string()
-          .required('Password is mandatory!')
-          .nullable()
-          .oneOf([Yup.ref('password'), null], 'Password does not match!'),
-      });
+  const handleSubmit = useCallback(
+    async (data: SignUpFormData) => {
+      try {
+        formRef.current?.setErrors({});
 
-      await schema.validate(data, {
-        abortEarly: false,
-      });
-    } catch (err) {
-      if (err instanceof Yup.ValidationError) {
-        const errors = getValidationErrors(err);
+        const schema = Yup.object().shape({
+          name: Yup.string().required('Name is mandatory!'),
+          email: Yup.string()
+            .email('Invalid email!')
+            .required('Email is mandatory'),
+          password: Yup.string().min(6, 'At least 6 characters!'),
+          password_confirmation: Yup.string()
+            .required('Password is mandatory!')
+            .nullable()
+            .oneOf([Yup.ref('password'), null], 'Password does not match!'),
+        });
 
-        formRef.current?.setErrors(errors);
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
+        await api.post('/users', data);
+
+        history.push('/');
+
+        addToast({
+          type: 'success',
+          title: 'Registration completed',
+          description: 'You can now login to LogSierra',
+        });
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
+
+          return;
+        }
+
+        addToast({
+          type: 'error',
+          title: 'Registration error',
+          description: 'En error occured while registering, please try again.',
+        });
       }
-    }
-  }, []);
+    },
+    [addToast, history],
+  );
 
   return (
     <Container>
