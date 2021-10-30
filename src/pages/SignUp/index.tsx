@@ -16,7 +16,7 @@ import Button from '../../components/Button';
 
 import { Container } from './styles';
 
-import LogoSvg from '../../assets/logo.svg';
+import LogoSvg from '../../assets/lLogo.svg';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 

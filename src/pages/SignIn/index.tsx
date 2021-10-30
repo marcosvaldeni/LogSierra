@@ -5,7 +5,7 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import { Link, useHistory } from 'react-router-dom';
 
-import LogoSvg from '../../assets/logo.svg';
+import LogoSvg from '../../assets/lLogo.svg';
 
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';

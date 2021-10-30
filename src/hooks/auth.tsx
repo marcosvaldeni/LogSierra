@@ -22,7 +22,7 @@ const AuthContext = createContext<AuthContextDate>({} as AuthContextDate);
 const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@LogSierra:token');
-    const user = localStorage.getItem('@LogSierra:token');
+    const user = localStorage.getItem('@LogSierra:user');
 
     if (token && user) {
       return { token, user: JSON.parse(user) };
