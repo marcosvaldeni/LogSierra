@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiSettings, FiPower } from 'react-icons/fi';
 import { BsXCircle, BsCheckCircle } from 'react-icons/bs';
 
 import Card from '../../components/Card';
-import Switch from '../../components/Switch';
-
-import LogoSvg from '../../assets/mLogo.png';
+import Header from '../../components/Header';
 
 import { Container, Controller, Logs } from './styles';
 
@@ -15,36 +12,10 @@ const Dashboard: React.FC = () => {
     <>
       <Container>
         <Card>
-          <header>
-            <img src={LogoSvg} alt="LogSierra Logo" />
-
-            <div>
-              <img
-                src="https://ic.pics.livejournal.com/seldonp38/50009290/935221/935221_300.jpg"
-                alt="Kate"
-              />
-
-              <div>
-                <h2>Kate Austen</h2>
-                <h3>Federal Prisoner</h3>
-                <div>
-                  <Switch />
-                  <p>Active</p>
-                </div>
-              </div>
-              <div>
-                <FiSettings />
-              </div>
-            </div>
-          </header>
+          <Header />
           <Controller>
-            <Link to="/signup">
-              <FiPower />
-            </Link>
-            <div>
-              <Link to="/signup">Actives</Link>
-              <Link to="/signup">Logs</Link>
-            </div>
+            <Link to="/signup">Actives</Link>
+            <Link to="/signup">Logs</Link>
           </Controller>
 
           <section>

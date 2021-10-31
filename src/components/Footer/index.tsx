@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const Card: React.FC = () => {
+const Footer: React.FC = () => {
   return (
     <Container>
       <a href="/">Privacy Policy</a>
@@ -13,4 +13,4 @@ const Card: React.FC = () => {
   );
 };
 
-export default Card;
+export default Footer;
