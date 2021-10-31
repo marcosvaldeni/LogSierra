@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiSettings, FiPower } from 'react-icons/fi';
+import { BsXCircle, BsCheckCircle } from 'react-icons/bs';
 
 import Card from '../../components/Card';
 import Switch from '../../components/Switch';
 
 import LogoSvg from '../../assets/mLogo.png';
 
-import { Container, Controller } from './styles';
+import { Container, Controller, Logs } from './styles';
 
 const Dashboard: React.FC = () => {
   return (
@@ -45,20 +46,56 @@ const Dashboard: React.FC = () => {
               <Link to="/signup">Logs</Link>
             </div>
           </Controller>
+
           <section>
-            <div>
+            <Logs>
               <div>
                 <p>MAY</p>
                 <p>14</p>
               </div>
               <div>
+                <BsCheckCircle />
                 <p>Friday, 13:30</p>
-                <p>Fiday, 17:00</p>
+
+                <BsXCircle />
+                <p>Friday, 17:00</p>
               </div>
               <div>
                 <p>3h 30m</p>
               </div>
-            </div>
+            </Logs>
+            <Logs>
+              <div>
+                <p>MAY</p>
+                <p>15</p>
+              </div>
+              <div>
+                <BsCheckCircle />
+                <p>Friday, 13:30</p>
+
+                <BsXCircle />
+                <p>Friday, 17:00</p>
+              </div>
+              <div>
+                <p>3h 30m</p>
+              </div>
+            </Logs>
+            <Logs>
+              <div>
+                <p>MAY</p>
+                <p>16</p>
+              </div>
+              <div>
+                <BsCheckCircle />
+                <p>Friday, 13:30</p>
+
+                <BsXCircle />
+                <p>Friday, 17:00</p>
+              </div>
+              <div>
+                <p>3h 30m</p>
+              </div>
+            </Logs>
           </section>
         </Card>
       </Container>
