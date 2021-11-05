@@ -10,7 +10,6 @@ import LogoSvg from '../../assets/lLogo.svg';
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 import getValidationErrors from '../../utils/getValidationErrors';
-import api from '../../services/api';
 
 import Card from '../../components/Card';
 import Footer from '../../components/Footer';
