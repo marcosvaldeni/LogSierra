@@ -25,8 +25,6 @@ interface SignInFormData {
 }
 
 const SignIn: React.FC = () => {
-  api.post('/');
-
   const formRef = useRef<FormHandles>(null);
 
   const { signIn } = useAuth();
