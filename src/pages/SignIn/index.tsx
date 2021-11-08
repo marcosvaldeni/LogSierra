@@ -10,6 +10,7 @@ import LogoSvg from '../../assets/lLogo.svg';
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 import getValidationErrors from '../../utils/getValidationErrors';
+import api from '../../services/api';
 
 import Card from '../../components/Card';
 import Footer from '../../components/Footer';
@@ -24,6 +25,7 @@ interface SignInFormData {
 }
 
 const SignIn: React.FC = () => {
+  api.post('/');
   const formRef = useRef<FormHandles>(null);
 
   const { signIn } = useAuth();
