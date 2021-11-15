@@ -14,20 +14,32 @@ export const Container = styled.header`
     align-items: center;
     justify-content: center;
 
+    &:hover {
+      span {
+        background: var(--white);
+      }
+
+      svg {
+        color: var(--purple-350);
+      }
+    }
+
     > div {
       position: relative;
-      > img {
-        margin-right: 10px;
-        height: 6rem;
-        width: 6rem;
-        border-radius: 50%;
+
+      a {
+        > img {
+          margin-right: 10px;
+          height: 6rem;
+          width: 6rem;
+          border-radius: 50%;
+        }
       }
 
       span {
         width: 1.5rem;
         height: 1.5rem;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
         position: absolute;
 
         right: 20%;
@@ -38,27 +50,21 @@ export const Container = styled.header`
         justify-content: center;
         align-items: center;
 
-        &:hover {
-          background: var(--white);
-
-          svg {
-            color: var(--purple-350);
-          }
-        }
-
         svg {
           font-size: 2rem;
-          color: rgba(158, 177, 196, 0.4);
+          color: rgba(0, 0, 0, 0);
         }
       }
     }
 
     > div {
-      > h2 {
-        margin-bottom: 7px;
-        font-size: 1rem;
-        font-weight: 700;
-        color: var(--gray-600);
+      > a {
+        > h2 {
+          margin-bottom: 7px;
+          font-size: 1rem;
+          font-weight: 700;
+          color: var(--gray-600);
+        }
       }
 
       > h3 {
@@ -94,10 +100,17 @@ export const Container = styled.header`
     }
   }
 
-  a {
+  button {
+    border: none;
+    background: none;
+
     > svg {
       font-size: 2rem;
       color: var(--gray-050);
+
+      &:hover {
+        color: var(--purple-350);
+      }
     }
   }
 `;

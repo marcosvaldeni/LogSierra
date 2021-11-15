@@ -10,7 +10,7 @@ export const Container = styled.footer`
   align-items: center;
 
   a:first-child {
-    margin-bottom: 2rem;
+    margin: 1rem 0;
     color: var(--purple-200);
   }
 

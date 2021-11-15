@@ -1,15 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-
-const appearFromLeft = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
+import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 100vh;
@@ -18,27 +7,31 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  animation: ${appearFromLeft} 1s;
-
   main {
-    img {
-      height: 30%;
-    }
-
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+
+    > a {
+      margin: 1rem 0;
+      margin-left: 2rem;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: var(--purple-300);
+      text-transform: uppercase;
+    }
 
     form {
       width: 100%;
 
       > div {
-        margin-top: 3rem;
-
+        padding: 1rem;
         & + div {
-          margin-top: 3rem;
+          margin-top: 1rem;
         }
+      }
+      button {
+        margin-top: 1.5rem;
       }
     }
 
