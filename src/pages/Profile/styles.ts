@@ -8,7 +8,7 @@ export const Container = styled.div`
   justify-content: center;
 
   main {
-    padding: 1rem 2rem;
+    padding: 1rem 10px;
     display: flex;
     flex-direction: column;
 
@@ -25,7 +25,7 @@ export const Container = styled.div`
       width: 100%;
 
       > div {
-        padding: 1rem;
+        padding: 0.8rem;
         & + div {
           margin-top: 1rem;
         }
@@ -48,6 +48,57 @@ export const Container = styled.div`
         font-weight: 900;
         color: var(--purple-200);
         text-transform: uppercase;
+      }
+    }
+  }
+
+  @media (min-width: 370px) {
+    > main {
+      padding: 1rem 1rem;
+
+      > header {
+        > img {
+          height: 6rem;
+        }
+
+        > div {
+          > img {
+            height: 5rem;
+            width: 5rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 476px) {
+    > main {
+      padding: 1rem 1rem;
+
+      > header {
+        > img {
+          height: 7rem;
+        }
+
+        > div {
+          > img {
+            height: 6rem;
+            width: 6rem;
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    > main {
+      padding: 1rem 1rem;
+
+      form {
+        > div {
+          padding: 1rem;
+        }
       }
     }
   }

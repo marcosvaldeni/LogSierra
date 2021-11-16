@@ -19,15 +19,17 @@ import { Container } from './styles';
 import { useAuth } from '../../hooks/auth';
 
 interface ProfileFormData {
+  name: string;
   email: string;
+  old_password: string;
   password: string;
+  password_confirmation: string;
 }
 
 const Profile: React.FC = () => {
-  api.get('/');
   const formRef = useRef<FormHandles>(null);
 
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const { addToast } = useToast();
 
   const history = useHistory();
@@ -49,7 +51,6 @@ const Profile: React.FC = () => {
             then: Yup.string().min(6, 'At least 6 characters'),
             otherwise: Yup.string(),
           }),
-
           password_confirmation: Yup.string()
             .nullable()
             .oneOf([Yup.ref('password'), null], 'Password does not match'),
@@ -59,17 +60,38 @@ const Profile: React.FC = () => {
           abortEarly: false,
         });
 
-        // await signIn({
-        //   email: data.email,
-        //   password: data.password,
-        // });
+        const { name, email, old_password, password, password_confirmation } =
+          data;
+
+        const formData = {
+          name,
+          email,
+          ...(old_password
+            ? {
+                old_password,
+                password,
+                password_confirmation,
+              }
+            : {}),
+        };
+
+        const response = await api.put('/profile', formData);
+
+        updateUser(response.data);
 
         history.push('/logs');
+
+        addToast({
+          type: 'success',
+          title: 'Updated Profile',
+          description: 'Your information has been updated.',
+        });
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
 
           formRef.current?.setErrors(errors);
+          return;
         }
 
         addToast({
