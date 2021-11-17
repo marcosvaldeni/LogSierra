@@ -1,21 +1,39 @@
 import React from 'react';
-import { BsArrowUpRight } from 'react-icons/bs';
+import { BsFillCircleFill } from 'react-icons/bs';
 
 import { Record, Section } from './styles';
 
-const LogRecords: React.FC = () => {
+interface Log {
+  id: string;
+  type: boolean;
+  month: string;
+  day: string;
+  date: string;
+}
+
+interface Logs {
+  logs: Log[];
+}
+
+const LogRecords: React.FC<Logs> = ({ logs }: Logs) => {
   return (
     <Section>
-      <Record>
-        <div>
-          <p>MAY</p>
-          <p>14</p>
-        </div>
-        <div>
-          <p>Friday, 13:30</p>
-          <BsArrowUpRight />
-        </div>
-      </Record>
+      {logs.map(log => (
+        <Record key={log.id}>
+          <div>
+            <p>{log.month}</p>
+            <p>{log.date}</p>
+          </div>
+          <div>
+            <p>{log.day}</p>
+            {log.type ? (
+              <BsFillCircleFill style={{ color: '#1CC4AB' }} />
+            ) : (
+              <BsFillCircleFill style={{ color: '#FF696D' }} />
+            )}
+          </div>
+        </Record>
+      ))}
     </Section>
   );
 };
