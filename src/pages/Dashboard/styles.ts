@@ -73,32 +73,32 @@ export const Controller = styled.section`
 
   display: flex;
 
-  > a {
-    width: 7rem;
+  > button {
+    width: 100%;
     padding: 1rem 2rem;
+    border: none;
     font-size: 1.1rem;
     font-weight: 700;
-    display: flex;
-    justify-content: center;
-
-    box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, 0.03);
-    border-radius: 10px;
-
-    & + a {
-      margin-left: 1rem;
-    }
-  }
-
-  > a:first-child {
     color: var(--white);
     background: linear-gradient(
       272.55deg,
       var(--purple-350) -34.1%,
       rgba(89, 8, 161, 0.69) 152.79%
     );
+
+    display: flex;
+    justify-content: center;
+
+    box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+
+    & + button {
+      margin-left: 1rem;
+    }
   }
 
-  > a:nth-child(2) {
+  > button:disabled {
+    cursor: default;
     color: var(--purple-900);
     background: var(--white);
   }
@@ -157,7 +157,7 @@ export const Section = styled.section`
   }
 `;
 
-export const Record = styled.article`
+export const LogRecord = styled.article`
   border-radius: 5px;
   border-left: 10px solid var(--purple-350);
   background: var(--purple-100);
@@ -203,5 +203,69 @@ export const Record = styled.article`
       font-size: 1.6rem;
       margin-right: 0.4rem;
     }
+  }
+`;
+
+export const ClockRecord = styled.article`
+  border-radius: 5px;
+  border-left: 10px solid var(--purple-350);
+  background: var(--purple-100);
+  padding: 0.5rem 1rem;
+  color: var(--black);
+  display: flex;
+  justify-content: space-between;
+
+  & + article {
+    margin-top: 0.5rem;
+  }
+
+  div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p:first-child {
+      text-align: center;
+      font-size: 0.6rem;
+      line-height: 0.6rem;
+    }
+
+    p:nth-child(2) {
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.8rem;
+    }
+  }
+
+  div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    font-weight: 100;
+
+    > svg:first-child {
+      color: var(--green-700);
+      font-size: 1.6rem;
+      margin-right: 0.4rem;
+    }
+
+    > svg {
+      color: var(--red-400);
+      font-size: 1.3rem;
+      margin-left: 0.6rem;
+      margin-right: 0.4rem;
+    }
+
+    p {
+      & + p {
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  div:nth-child(3) {
+    align-items: center;
+    font-weight: 100;
+    color: var(--gray-100);
+    display: flex;
   }
 `;
