@@ -77,6 +77,7 @@ export const Container = styled.header`
       > div {
         display: flex;
         align-items: center;
+        justify-content: space-around;
 
         p {
           font-size: 0.7rem;

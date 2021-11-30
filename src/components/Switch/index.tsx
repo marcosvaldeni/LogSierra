@@ -2,9 +2,17 @@ import React from 'react';
 
 import { Container, Switcher } from './styles';
 
-const Switch: React.FC = () => {
+interface Props {
+  handleActivation(): void;
+  active: boolean;
+}
+
+const Switch: React.FC<Props> = ({ handleActivation, active }) => {
   return (
-    <Container>
+    <Container
+      onClick={handleActivation}
+      className={`${active ? 'enabled' : 'disabled'}`}
+    >
       <Switcher />
     </Container>
   );

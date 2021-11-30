@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { format, parseISO } from 'date-fns';
+import { format, parseISO, differenceInMinutes } from 'date-fns';
 import { BsFillCircleFill, BsXCircle, BsCheckCircle } from 'react-icons/bs';
 
 import Card from '../../components/Card';
@@ -14,6 +14,7 @@ import {
   ClockRecord,
 } from './styles';
 import api from '../../services/api';
+import Active from '../../Models/Active';
 
 interface Log {
   id: string;
@@ -26,6 +27,9 @@ interface Log {
 
 const Dashboard: React.FC = () => {
   const [logs, setLogs] = useState<Log[]>([]);
+  const [actives, setActives] = useState<Active[]>([]);
+  const [isActive, setIsActive] = useState<boolean>(false);
+
   const [controller, setController] = useState<boolean>(true);
 
   const handleController = () => {
@@ -48,13 +52,49 @@ const Dashboard: React.FC = () => {
 
       setLogs(logsFormatted.reverse());
     });
+
+    api.get<Active[]>(`/actives/list`).then(response => {
+      const ActivesFormatted = response.data.map(act => {
+        return {
+          ...act,
+          date: format(parseISO(act.activeOn), 'dd'),
+          month: format(parseISO(act.activeOn), 'LLLL'),
+          on: `${format(parseISO(act.activeOn), 'EEEE')}, ${format(
+            parseISO(act.activeOn),
+            'HH:mm',
+          )}`,
+          off: act.activeOff
+            ? `${format(parseISO(act.activeOff), 'EEEE')}, ${format(
+                parseISO(act.activeOff),
+                'HH:mm',
+              )}`
+            : null,
+          duration: act.activeOff
+            ? String(
+                differenceInMinutes(
+                  new Date(act.activeOff),
+                  new Date(act.activeOn),
+                ),
+              )
+            : null,
+        };
+      });
+      console.log(ActivesFormatted);
+
+      setActives(ActivesFormatted.reverse());
+    });
   }, []);
 
   return (
     <>
       <Container>
         <Card>
-          <Header />
+          <Header
+            actives={actives}
+            isActive={isActive}
+            setActives={setActives}
+            setIsActive={setIsActive}
+          />
 
           <Controller>
             {controller ? (
@@ -79,41 +119,41 @@ const Dashboard: React.FC = () => {
           </Controller>
 
           <Section>
-            {controller ? (
-              logs.map(log => (
-                <LogRecord key={log.id}>
-                  <div>
-                    <p>{log.month}</p>
-                    <p>{log.date}</p>
-                  </div>
-                  <div>
-                    <p>{log.day}</p>
-                    {log.type ? (
-                      <BsFillCircleFill style={{ color: '#1CC4AB' }} />
-                    ) : (
-                      <BsFillCircleFill style={{ color: '#FF696D' }} />
-                    )}
-                  </div>
-                </LogRecord>
-              ))
-            ) : (
-              <ClockRecord>
-                <div>
-                  <p>MAY</p>
-                  <p>14</p>
-                </div>
-                <div>
-                  <BsCheckCircle />
-                  <p>Friday, 13:30</p>
+            {controller
+              ? logs.map(log => (
+                  <LogRecord key={log.id}>
+                    <div>
+                      <p>{log.month}</p>
+                      <p>{log.date}</p>
+                    </div>
+                    <div>
+                      <p>{log.day}</p>
+                      {log.type ? (
+                        <BsFillCircleFill style={{ color: '#1CC4AB' }} />
+                      ) : (
+                        <BsFillCircleFill style={{ color: '#FF696D' }} />
+                      )}
+                    </div>
+                  </LogRecord>
+                ))
+              : actives.map(active => (
+                  <ClockRecord key={active.id}>
+                    <div>
+                      <p>{active.month}</p>
+                      <p>{active.date}</p>
+                    </div>
+                    <div>
+                      <BsCheckCircle />
+                      <p>{active.on}</p>
 
-                  <BsXCircle />
-                  <p>Friday, 17:00</p>
-                </div>
-                <div>
-                  <p>3h 30m</p>
-                </div>
-              </ClockRecord>
-            )}
+                      {active.off && <BsXCircle />}
+                      <p>{active.off && active.off}</p>
+                    </div>
+                    <div>
+                      <p>{active.duration}</p>
+                    </div>
+                  </ClockRecord>
+                ))}
           </Section>
 
           <Footer />
