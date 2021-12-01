@@ -6,7 +6,7 @@ import Switch from '../Switch';
 import LogoSvg from '../../assets/mLogo.png';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
-import Active from '../../Models/Active';
+import Active from '../../models/Active';
 
 import { Container } from './styles';
 

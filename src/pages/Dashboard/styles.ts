@@ -263,9 +263,15 @@ export const ClockRecord = styled.article`
   }
 
   div:nth-child(3) {
+    width: 5rem;
     align-items: center;
     font-weight: 100;
     color: var(--gray-100);
     display: flex;
+    justify-content: flex-end;
+
+    p {
+      font-size: 0.8rem;
+    }
   }
 `;

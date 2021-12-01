@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { format, parseISO, differenceInMinutes } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { BsFillCircleFill, BsXCircle, BsCheckCircle } from 'react-icons/bs';
 
 import Card from '../../components/Card';
@@ -14,7 +14,8 @@ import {
   ClockRecord,
 } from './styles';
 import api from '../../services/api';
-import Active from '../../Models/Active';
+import Active from '../../models/Active';
+import date from '../../utils/dateUtil';
 
 interface Log {
   id: string;
@@ -59,24 +60,17 @@ const Dashboard: React.FC = () => {
           ...act,
           date: format(parseISO(act.activeOn), 'dd'),
           month: format(parseISO(act.activeOn), 'LLLL'),
-          on: `${format(parseISO(act.activeOn), 'EEEE')}, ${format(
+          on: `${format(parseISO(act.activeOn), 'EEEEEE')}, ${format(
             parseISO(act.activeOn),
             'HH:mm',
           )}`,
           off: act.activeOff
-            ? `${format(parseISO(act.activeOff), 'EEEE')}, ${format(
+            ? `${format(parseISO(act.activeOff), 'EEEEEE')}, ${format(
                 parseISO(act.activeOff),
                 'HH:mm',
               )}`
             : null,
-          duration: act.activeOff
-            ? String(
-                differenceInMinutes(
-                  new Date(act.activeOff),
-                  new Date(act.activeOn),
-                ),
-              )
-            : null,
+          duration: date.getDuration(act.activeOn, act.activeOff),
         };
       });
       console.log(ActivesFormatted);
