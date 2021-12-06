@@ -6,6 +6,7 @@ interface User {
   name: string;
   email: string;
   title: string;
+  status: boolean;
 }
 
 interface SignInCredentials {
@@ -64,6 +65,18 @@ const AuthProvider: React.FC = ({ children }) => {
     await api.get('logs/logout');
 
     setData({} as AuthState);
+  }, []);
+
+  const toggleStatus = useCallback(async (user: User) => {
+    localStorage.setItem(
+      '@LogSierra:user',
+      JSON.stringify({ ...user, status: !user.status }),
+    );
+
+    setData({
+      token: data.token,
+      user,
+    });
   }, []);
 
   const updateUser = useCallback(

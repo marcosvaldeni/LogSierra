@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { format, parseISO } from 'date-fns';
-import { BsFillCircleFill, BsXCircle, BsCheckCircle } from 'react-icons/bs';
 
 import Card from '../../components/Card';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Screen from '../../components/Screen';
 
-import {
-  Container,
-  Controller,
-  Section,
-  LogRecord,
-  ClockRecord,
-} from './styles';
+import { Container } from './styles';
 import api from '../../services/api';
 import Active from '../../models/Active';
 import date from '../../utils/dateUtil';
@@ -30,12 +24,6 @@ const Dashboard: React.FC = () => {
   const [logs, setLogs] = useState<Log[]>([]);
   const [actives, setActives] = useState<Active[]>([]);
   const [isActive, setIsActive] = useState<boolean>(false);
-
-  const [controller, setController] = useState<boolean>(true);
-
-  const handleController = () => {
-    controller ? setController(false) : setController(true);
-  };
 
   useEffect(() => {
     api.get<Log[]>(`/logs/list`).then(response => {
@@ -73,7 +61,6 @@ const Dashboard: React.FC = () => {
           duration: date.getDuration(act.activeOn, act.activeOff),
         };
       });
-      console.log(ActivesFormatted);
 
       setActives(ActivesFormatted.reverse());
     });
@@ -89,67 +76,7 @@ const Dashboard: React.FC = () => {
             setActives={setActives}
             setIsActive={setIsActive}
           />
-
-          <Controller>
-            {controller ? (
-              <button type="button" onClick={handleController} disabled>
-                Logs
-              </button>
-            ) : (
-              <button type="button" onClick={handleController}>
-                Logs
-              </button>
-            )}
-
-            {!controller ? (
-              <button type="button" onClick={handleController} disabled>
-                TimeCard
-              </button>
-            ) : (
-              <button type="button" onClick={handleController}>
-                TimeCard
-              </button>
-            )}
-          </Controller>
-
-          <Section>
-            {controller
-              ? logs.map(log => (
-                  <LogRecord key={log.id}>
-                    <div>
-                      <p>{log.month}</p>
-                      <p>{log.date}</p>
-                    </div>
-                    <div>
-                      <p>{log.day}</p>
-                      {log.type ? (
-                        <BsFillCircleFill style={{ color: '#1CC4AB' }} />
-                      ) : (
-                        <BsFillCircleFill style={{ color: '#FF696D' }} />
-                      )}
-                    </div>
-                  </LogRecord>
-                ))
-              : actives.map(active => (
-                  <ClockRecord key={active.id}>
-                    <div>
-                      <p>{active.month}</p>
-                      <p>{active.date}</p>
-                    </div>
-                    <div>
-                      <BsCheckCircle />
-                      <p>{active.on}</p>
-
-                      {active.off && <BsXCircle />}
-                      <p>{active.off && active.off}</p>
-                    </div>
-                    <div>
-                      <p>{active.duration}</p>
-                    </div>
-                  </ClockRecord>
-                ))}
-          </Section>
-
+          <Screen logs={logs} actives={actives} />
           <Footer />
         </Card>
       </Container>
