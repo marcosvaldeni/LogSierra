@@ -9,7 +9,7 @@ import Screen from '../../components/Screen';
 import { Container } from './styles';
 import api from '../../services/api';
 import Active from '../../models/Active';
-import date from '../../utils/dateUtil';
+import dateUtil from '../../utils/dateUtil';
 
 interface Log {
   id: string;
@@ -58,7 +58,7 @@ const Dashboard: React.FC = () => {
                 'HH:mm',
               )}`
             : null,
-          duration: date.getDuration(act.activeOn, act.activeOff),
+          duration: dateUtil.getDuration(act.activeOn, act.activeOff),
         };
       });
 

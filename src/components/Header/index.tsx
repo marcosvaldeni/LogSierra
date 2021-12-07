@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MdSettings, MdPowerSettingsNew } from 'react-icons/md';
 
@@ -10,8 +10,10 @@ import Active from '../../models/Active';
 
 import { Container } from './styles';
 
+import dateUtil from '../../utils/dateUtil';
+
 interface Props {
-  actives: Active[] | null;
+  actives: Active[];
   setActives(value: Active[]): void;
   isActive: boolean;
   setIsActive(value: boolean): void;
@@ -32,27 +34,27 @@ const Header: React.FC<Props> = ({
     });
   }, []);
 
-  // useEffect(() => {
-  //   api.get<Active[]>(`/actives/list`).then(response => {
-  //     const ActivesFormatted = response.data.map(act => {
-  //       return {
-  //         ...act,
-  //       };
-  //     });
-  //     setActives(ActivesFormatted.reverse());
-  //   });
-  //   console.log('test');
-  // }, [isActive]);
-
   const handleActivation = async () => {
     const status: boolean = await (await api.get('/actives/status')).data;
 
     if (status) {
       setIsActive(false);
-      await api.get('/actives/active-off');
+      const data: Active = await (await api.get('/actives/active-off')).data;
+
+      const newActves = actives.filter(item => item.id !== data.id);
+
+      setActives([
+        {
+          ...dateUtil.formatActive(data),
+          duration: dateUtil.getDuration(data.activeOn, data.activeOff),
+        },
+        ...newActves,
+      ]);
     } else {
       setIsActive(true);
-      await api.get('/actives/active-on');
+      const data: Active = await (await api.get('/actives/active-on')).data;
+
+      setActives([dateUtil.formatActive(data), ...actives]);
     }
   };
 
