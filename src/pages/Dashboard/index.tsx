@@ -10,6 +10,7 @@ import { Container } from './styles';
 import api from '../../services/api';
 import Active from '../../models/Active';
 import dateUtil from '../../utils/dateUtil';
+import Profile from '../../components/Profile';
 
 interface Log {
   id: string;
@@ -24,6 +25,7 @@ const Dashboard: React.FC = () => {
   const [logs, setLogs] = useState<Log[]>([]);
   const [actives, setActives] = useState<Active[]>([]);
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [isProfile, setProfile] = useState<boolean>(false);
 
   useEffect(() => {
     api.get<Log[]>(`/logs/list`).then(response => {
@@ -75,8 +77,14 @@ const Dashboard: React.FC = () => {
             isActive={isActive}
             setActives={setActives}
             setIsActive={setIsActive}
+            setProfile={setProfile}
           />
-          <Screen logs={logs} actives={actives} />
+          {isProfile ? (
+            <Profile setProfile={setProfile} />
+          ) : (
+            <Screen logs={logs} actives={actives} />
+          )}
+
           <Footer />
         </Card>
       </Container>

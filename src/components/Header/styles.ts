@@ -58,20 +58,22 @@ export const Container = styled.header`
     }
 
     > div {
-      > a {
+      > div {
+        cursor: pointer;
+
         > h2 {
           margin-bottom: 7px;
           font-size: 1rem;
           font-weight: 700;
           color: var(--gray-600);
         }
-      }
 
-      > h3 {
-        margin-bottom: 7px;
-        font-size: 0.8rem;
-        font-weight: 700;
-        color: var(--gray-400);
+        > h3 {
+          margin-bottom: 7px;
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: var(--gray-400);
+        }
       }
 
       > div {

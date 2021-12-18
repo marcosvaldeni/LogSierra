@@ -17,6 +17,7 @@ interface Props {
   setActives(value: Active[]): void;
   isActive: boolean;
   setIsActive(value: boolean): void;
+  setProfile(value: boolean): void;
 }
 
 const Header: React.FC<Props> = ({
@@ -24,6 +25,7 @@ const Header: React.FC<Props> = ({
   setActives,
   isActive,
   setIsActive,
+  setProfile,
 }) => {
   const { signOut, user } = useAuth();
 
@@ -58,6 +60,10 @@ const Header: React.FC<Props> = ({
     }
   };
 
+  const handleProfile = () => {
+    setProfile(true);
+  };
+
   return (
     <Container>
       <img src={LogoSvg} alt="LogSierra Logo" />
@@ -77,10 +83,10 @@ const Header: React.FC<Props> = ({
         </div>
 
         <div>
-          <Link to="/profile">
+          <div onClick={handleProfile} aria-hidden="true">
             <h2>{user.name}</h2>
-          </Link>
-          <h3>{user.title}</h3>
+            <h3>{user.title}</h3>
+          </div>
           <div>
             <Switch active={isActive} handleActivation={handleActivation} />
             <p>Active</p>
