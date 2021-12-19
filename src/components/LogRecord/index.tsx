@@ -3,7 +3,15 @@ import { BsFillCircleFill } from 'react-icons/bs';
 
 import { LogRecord } from './styles';
 
-import Log from '../../models/Logs';
+// import Log from '../../models/Logs';
+interface Log {
+  id: string;
+  type: boolean;
+  month: string;
+  day: string;
+  date: string;
+  created_at: string;
+}
 
 interface Props {
   log: Log;

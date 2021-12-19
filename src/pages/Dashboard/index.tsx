@@ -8,9 +8,20 @@ import Screen from '../../components/Screen';
 
 import { Container } from './styles';
 import api from '../../services/api';
-import Active from '../../models/Active';
 import dateUtil from '../../utils/dateUtil';
 import Profile from '../../components/Profile';
+// import Active from '../../models/Active';
+
+interface Active {
+  id: string;
+  activeOn: string;
+  activeOff: null | string;
+  date: string;
+  month: string;
+  on: string;
+  off: null | string;
+  duration: null | string;
+}
 
 interface Log {
   id: string;

@@ -4,7 +4,18 @@ import {
   format,
   parseISO,
 } from 'date-fns';
-import Active from '../models/Active';
+// import Active from '../models/Active';
+
+interface Active {
+  id: string;
+  activeOn: string;
+  activeOff: null | string;
+  date: string;
+  month: string;
+  on: string;
+  off: null | string;
+  duration: null | string;
+}
 
 const dateUtil = {
   getDuration: (

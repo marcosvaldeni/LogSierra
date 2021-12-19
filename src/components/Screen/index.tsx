@@ -4,8 +4,28 @@ import { Controller, Section } from './styles';
 
 import LogRecordComponent from '../LogRecord';
 import ClockRecordComponent from '../ClockRecord';
-import Log from '../../models/Logs';
-import Active from '../../models/Active';
+// import Log from '../../models/Logs';
+// import Active from '../../models/Active';
+
+interface Log {
+  id: string;
+  type: boolean;
+  month: string;
+  day: string;
+  date: string;
+  created_at: string;
+}
+
+interface Active {
+  id: string;
+  activeOn: string;
+  activeOff: null | string;
+  date: string;
+  month: string;
+  on: string;
+  off: null | string;
+  duration: null | string;
+}
 
 interface Props {
   logs: Log[];

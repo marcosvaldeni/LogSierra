@@ -6,11 +6,23 @@ import Switch from '../Switch';
 import LogoSvg from '../../assets/mLogo.png';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
-import Active from '../../models/Active';
 
 import { Container } from './styles';
 
 import dateUtil from '../../utils/dateUtil';
+
+// import Active from '../../models/Active';
+
+interface Active {
+  id: string;
+  activeOn: string;
+  activeOff: null | string;
+  date: string;
+  month: string;
+  on: string;
+  off: null | string;
+  duration: null | string;
+}
 
 interface Props {
   actives: Active[];
