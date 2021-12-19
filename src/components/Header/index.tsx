@@ -34,7 +34,7 @@ const Header: React.FC<Props> = ({
       const newStatus = response.data;
       setIsActive(newStatus);
     });
-  }, []);
+  }, [setIsActive]);
 
   const handleActivation = async () => {
     const status: boolean = await (await api.get('/actives/status')).data;

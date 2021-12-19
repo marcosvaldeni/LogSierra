@@ -102,7 +102,7 @@ const Profile: React.FC<ProfileProps> = ({ setProfile }) => {
         });
       }
     },
-    [addToast, history],
+    [addToast, history, updateUser],
   );
 
   const handleBack = () => {
