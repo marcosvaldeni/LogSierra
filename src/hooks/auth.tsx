@@ -67,18 +67,6 @@ const AuthProvider: React.FC = ({ children }) => {
     setData({} as AuthState);
   }, []);
 
-  const toggleStatus = useCallback(async (user: User) => {
-    localStorage.setItem(
-      '@LogSierra:user',
-      JSON.stringify({ ...user, status: !user.status }),
-    );
-
-    setData({
-      token: data.token,
-      user,
-    });
-  }, []);
-
   const updateUser = useCallback(
     (user: User) => {
       localStorage.setItem('@LogSierra:user', JSON.stringify(user));
